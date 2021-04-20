@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>E-mail</title>
+  <style type="text/css">
+        body {
+            padding: 50px;
+        }
+
+        .email td {
+            border: 1px solid #000000;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<h1>E-mail:</h1>
+
+<table class="email">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Address</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="email: ${email}">
+    <td th:text="${email.id}">1</td>
+    <td th:text="${email.address}">polyakov@mail.ru</td>
+    <td>
+      <a th:href="@{/email/{id}/edit(id=${email.id})}" href="email-edit.html">Edit</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<div class="row">
+  <button type="submit" href="email-add.html">Add new Email</button>
+</div>
+</body>
+</html>

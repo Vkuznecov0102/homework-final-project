@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Добавить адрес электронной почты</title>
+    <style type="text/css">
+        div.field {
+  padding-bottom: 5px;
+}
+div.field label {
+  display: block;
+  float: left;
+  width: 70px;
+  height: 15px;
+}
+
+    </style>
+</head>
+
+<body>
+
+<form id="add-form" th:action="@{/email/{id}/add(id=${emailDto.id})}" th:method="post" action="email-add.html">
+    <h1>Email Info:</h1>
+
+    <div class="field">
+        <label for="id-input">ID:</label>
+        <input id="id-input" name="id" type="text" th:value="${emailDto.id}" value="1"/>
+    </div>
+
+    <div class="field">
+        <label for="address-input">Address:</label>
+        <input id="address-input" name="address" type="text" th:value="${emailDto.address}" value="polyakov@mail.ru"/>
+    </div>
+
+    <div class="field">
+        <label></label>
+        <button type="submit" th:href="\email">Add and save</button>
+    </div>
+</form>
+
+</body>
+</html>

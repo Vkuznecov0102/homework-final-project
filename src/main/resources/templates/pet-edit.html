@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Изменить животное пользователя</title>
+</head>
+<body>
+
+<!-- user edition -->
+<form id="edit-form" th:action="@{/pet/{id}/edit(id=${petDto.id})}" th:method="post" action="pet-edit.html">
+    <h1>Pet Info:</h1>
+
+    <div class="row">
+        <label for="id-input">ID:</label>
+        <input id="id-input" name="id" type="text" readonly="readonly" th:value="${petDto.id}" value="1"/>
+    </div>
+
+    <div class="row">
+        <label for="type-input">Type:</label>
+        <input id="type-input" name="type" type="text" th:value="${petDto.type}" value="Капибара"/>
+    </div>
+
+    <div class="row">
+        <label for="name-input">Name:</label>
+        <input id="name-input" name="name" type="text" th:value="${petDto.name}" value="Чучундра"/>
+    </div>
+
+    <div class="row">
+        <button type="submit">Save</button>
+    </div>
+</form>
+
+</body>
+</html>

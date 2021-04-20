@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список животных</title>
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+
+        .pet td {
+            border: 1px solid #000000;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<h1>Животные:</h1>
+
+<table class="pet">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pet: ${pet}">
+        <td th:text="${pet.id}">1</td>
+        <td th:text="${pet.type}">Dog</td>
+        <td th:text="${pet.name}">Мурзик</td>
+        <td>
+            <a th:href="@{/pet/{id}/edit(id=${pet.id})}" href="pet-edit.html">Edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
