@@ -27,4 +27,7 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pet_id", referencedColumnName = "id")
     private Pet pet;
+
+    public User(long id, String fio, String mail, String pet) {
+    }
 }
