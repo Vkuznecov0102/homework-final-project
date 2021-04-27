@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class EmailRepositoryImpl implements EmailRepository{
+public class EmailRepositoryImpl implements EmailRepository {
 
     @PersistenceContext
     private final EntityManager entityManager;

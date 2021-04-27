@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class PetRepositoryImpl implements PetRepository{
+public class PetRepositoryImpl implements PetRepository {
 
     @PersistenceContext
     private final EntityManager entityManager;

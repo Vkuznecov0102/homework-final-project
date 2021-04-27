@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class PetServiceImpl implements PetService{
+public class PetServiceImpl implements PetService {
 
     private final PetRepository repository;
 

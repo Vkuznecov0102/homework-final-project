@@ -13,14 +13,14 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class UserRepositoryImpl implements UserRepository{
+public class UserRepositoryImpl implements UserRepository {
 
     @PersistenceContext
     private final EntityManager entityManager;
 
     @Override
     public Optional<User> getUserById(long id) {
-        return Optional.ofNullable(entityManager.find(User.class,id));
+        return Optional.ofNullable(entityManager.find(User.class, id));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public List<User> findAll() {
-        TypedQuery<User> query = entityManager.createQuery("select u from User u",User.class);
+        TypedQuery<User> query = entityManager.createQuery("select u from User u", User.class);
         return query.getResultList();
     }
 }

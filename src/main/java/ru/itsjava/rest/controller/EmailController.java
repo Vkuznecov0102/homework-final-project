@@ -15,13 +15,13 @@ public class EmailController {
     private final EmailService emailService;
 
     @GetMapping("/email")
-    public String getEmailList(Model model){
+    public String getEmailList(Model model) {
         model.addAttribute("email", emailService.findAll());
         return "email-list";
     }
 
     @RequestMapping(value = "/email/add", method = RequestMethod.PUT)
-    public String addEmail(Model model){
+    public String addEmail(Model model) {
         model.addAttribute("email", new Email());
         return "redirect:/";
     }

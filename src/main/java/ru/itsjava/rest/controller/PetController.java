@@ -17,7 +17,7 @@ public class PetController {
     private final PetService petService;
 
     @GetMapping("/pet")
-    public String getPetList(Model model){
+    public String getPetList(Model model) {
         model.addAttribute("pet", petService.findAll());
         return "pet-list";
     }

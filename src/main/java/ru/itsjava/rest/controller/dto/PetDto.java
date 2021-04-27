@@ -11,11 +11,11 @@ public class PetDto {
     private String type;
     private String name;
 
-    public static Pet toDomainObject(PetDto petDto){
+    public static Pet toDomainObject(PetDto petDto) {
         return new Pet(petDto.id, petDto.type, petDto.name);
     }
 
-    public static PetDto toDto(Pet pet){
+    public static PetDto toDto(Pet pet) {
         return new PetDto(pet.getId(), pet.getType(), pet.getName());
     }
 }

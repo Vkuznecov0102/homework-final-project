@@ -15,12 +15,11 @@ public class UserDto {
     private String pet;
 
 
-
     public UserDto(long id, String fio, String mail, String pet) {
-        this.id=id;
-        this.fio=fio;
-        this.mail=mail;
-        this.pet=pet;
+        this.id = id;
+        this.fio = fio;
+        this.mail = mail;
+        this.pet = pet;
     }
 
     public UserDto(long id, String fio, Email mail, Pet pet) {
@@ -29,7 +28,7 @@ public class UserDto {
 //    private static ModelMapper modelMapper=new ModelMapper();
 
     public static User toDomainObject(UserDto userDto) {
-        return new User(userDto.id, userDto.fio, userDto.mail, userDto.pet);
+        return new User(userDto.id, userDto.fio, new Email(0L, "something@gmail.com"), new Pet(0L, "cat", "Мурзик"));
     }
 
     public static UserDto toDto(User user) {
