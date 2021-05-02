@@ -5,42 +5,57 @@
     <title>Список пользователей</title>
     <style type="text/css">
         body {
-            padding: 50px;
-        }
-
+		background:  url(resources/svetlye_fony.jpg);
+		color: #000;
+		background-attachment: fixed;
+		background-repeat: repeat-x;
+		background-size: 100%
+}
         .users td {
             border: 1px solid #000000;
             padding: 15px;
         }
+        div.field {
+  padding-bottom: 5px;
+}
+div.field label {
+  display: block;
+  float: left;
+  width: 70px;
+  height: 15px;
+}
+
 
     </style>
 </head>
-<body>
+<body background href="resources/svetlye_fony.jpg">
 <h1>Users:</h1>
 
-<table class="users">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Pet</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user: ${users}">
-        <td th:text="${user.id}">1</td>
-        <td th:text="${user.fio}">User</td>
-        <td th:text="${user.mail}">polyakov@mail.ru</td>
-        <td th:text="${user.pet}">dog</td>
-        <td>
-            <a th:href="@{/users/{id}/edit(id=${user.id})}" href="users-edit.html">Edit</a>
-        </td>
-        <td>
-            <a th:href="@{/users/{id}/delete(id=${user.id})}" href="/">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="field">
+    <table class="users">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Pet</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.id}">1</td>
+            <td th:text="${user.fio}">User</td>
+            <td th:text="${user.mail}">polyakov@mail.ru</td>
+            <td th:text="${user.pet}">dog</td>
+            <td>
+                <a th:href="@{/users/{id}/edit(id=${user.id})}" href="users-edit.html">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{/users/{id}/delete(id=${user.id})}" href="/">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

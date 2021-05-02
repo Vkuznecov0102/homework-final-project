@@ -3,7 +3,6 @@ package ru.itsjava.rest.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +27,7 @@ public class UserController {
         return "users-edit";
     }
 
-    @DeleteMapping("/users/{id}/delete")
+    @GetMapping("/users/{id}/delete")
     public String deleteUser(@PathVariable("id") String id, Model model) {
         UserDto dto = UserDto.toDto(userService.deleteUser(Long.parseLong(id)));
         model.addAttribute("userDto", dto);

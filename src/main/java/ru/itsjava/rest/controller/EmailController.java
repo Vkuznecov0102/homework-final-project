@@ -8,6 +8,8 @@ import ru.itsjava.domains.Email;
 import ru.itsjava.rest.controller.dto.EmailDto;
 import ru.itsjava.services.EmailService;
 
+import java.util.Objects;
+
 @RequiredArgsConstructor
 @Controller
 public class EmailController {
@@ -20,16 +22,16 @@ public class EmailController {
         return "email-list";
     }
 
-    @RequestMapping(value = "/email/add", method = RequestMethod.PUT)
-    public String addEmail(Model model) {
-        model.addAttribute("email", new Email());
-        return "redirect:/";
+    @RequestMapping(value = "/email/add", method = RequestMethod.GET)
+    public String addEmail(Model model, Email email) {
+        model.addAttribute("email", Objects.requireNonNullElseGet(email, Email::new));
+        return "email-add";
     }
 
     @PostMapping("/email/add")
     public String addEmail(EmailDto emailDto) {
         emailService.saveEmail(EmailDto.toDomainObject(emailDto));
-        return "redirect:/";
+        return "redirect:/email";
     }
 
     @GetMapping("/email/{id}/edit")
@@ -39,7 +41,7 @@ public class EmailController {
         return "email-edit";
     }
 
-    @DeleteMapping("/email/{id}/delete")
+    @GetMapping("/email/{id}/delete")
     public String deleteEmail(@PathVariable("id") String id, Model model) {
         EmailDto dto = EmailDto.toDto(emailService.deleteEmail(Long.parseLong(id)));
         model.addAttribute("emailDto", dto);

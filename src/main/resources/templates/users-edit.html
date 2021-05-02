@@ -6,6 +6,24 @@
     <title>Изменить пользователя</title>
 </head>
 <body>
+<style>
+    body {
+		background:  url(svetlye_fony.jpg);
+		color: #000;
+		background-attachment: fixed;
+		background-repeat: repeat-x;
+}
+div.row {
+  padding-bottom: 5px;
+}
+div.row label {
+  display: block;
+  float: left;
+  width: 70px;
+  height: 15px;
+}
+
+</style>
 
 <!-- user edition -->
 <form id="edit-form" th:action="@{/users/{id}/edit(id=${userDto.id})}" th:method="post" action="users-edit.html">
@@ -13,22 +31,22 @@
 
     <div class="row">
         <label for="id-input">ID:</label>
-        <input id="id-input" name="id" type="text" readonly="readonly" th:value="${userDto.id}" value="1"/>
+        <input id="id-input" name="id" readonly="readonly" th:value="${userDto.id}" value="1"/>
     </div>
 
     <div class="row">
         <label for="title-input">Fio:</label>
-        <input id="title-input" name="name" type="text" th:value="${userDto.fio}" value="Tanya Grotter"/>
+        <input id="title-input" name="name" th:value="${userDto.fio}" value="Tanya Grotter"/>
     </div>
 
     <div class="row">
         <label for="email-input">Email:</label>
-        <input id="email-input" name="mail" type="text" th:value="${userDto.mail}" value="polyakov@mail.ru"/>
+        <input id="email-input" name="mail" th:value="${userDto.mail}" value="polyakov@mail.ru"/>
     </div>
 
     <div class="row">
         <label for="pet-input">Pet:</label>
-        <input id="pet-input" name="pet" type="text" th:value="${userDto.pet}" value="cat"/>
+        <input id="pet-input" name="pet" th:value="${userDto.pet}" value="cat"/>
     </div>
 
     <div class="row">

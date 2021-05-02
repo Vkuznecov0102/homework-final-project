@@ -5,13 +5,27 @@
     <title>Список животных</title>
     <style type="text/css">
         body {
-            padding: 50px;
-        }
+		background:  url(svetlye_fony.jpg);
+		color: #000;
+		background-attachment: fixed;
+		background-repeat: repeat-x;
+}
 
         .pet td {
             border: 1px solid #000000;
             padding: 15px;
         }
+
+        div.field {
+  padding-bottom: 5px;
+}
+div.field label {
+  display: block;
+  float: left;
+  width: 70px;
+  height: 15px;
+}
+
 
     </style>
 </head>
@@ -40,5 +54,9 @@
     </tr>
     </tbody>
 </table>
+<br>
+<div class="field">
+    <button type="button"><a href="/pet/add">Add new Pet</a></button>
+</div>
 </body>
 </html>
